@@ -16,7 +16,7 @@ def getBookLinks(pageNum):
     soup = BeautifulSoup(page.text, "html.parser")
     aTags = soup.select(".image_container > a")
     for link in aTags:
-        linkList.append(f"https://books.toscrape.com/catalogue/{link["href"]}")
+        linkList.append(f"https://books.toscrape.com/catalogue/{link['href']}")
     with open(cachefile, "w") as f:
         json.dump(linkList, f)
     return linkList
