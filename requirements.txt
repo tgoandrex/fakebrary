@@ -1,2 +1,6 @@
 Flask
 Gunicorn
+bs4
+requests
+json
+os
