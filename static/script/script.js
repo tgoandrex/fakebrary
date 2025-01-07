@@ -1,5 +1,6 @@
 const shelfContainer = document.getElementById("shelf-container");
 let booksPerShelf;
+let resizeTimeout;
 
 const fetchBookJSON = (booksPerShelf) => {
     fetch("/api/books")
@@ -110,5 +111,8 @@ const handleResize = () => {
 
     fetchBookJSON(booksPerShelf);
 }
-  
-window.addEventListener('resize', handleResize);
+
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(handleResize, 200);
+});
